@@ -1,0 +1,6 @@
+<suite name="Two Suites">
+    <suite-files>
+        <suite-file path="formalTestRunSuite1.xml"/>
+        <suite-file path="formalTestRunSuite2.xml"/>
+    </suite-files>
+</suite>
