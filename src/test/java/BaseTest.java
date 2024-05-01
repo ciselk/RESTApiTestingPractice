@@ -5,6 +5,6 @@ public class BaseTest {
 
     @BeforeClass
     public void setBaseUri(){
-        RestAssured.baseURI = "https://dummy.restapiexample.com/api/v1";
+        RestAssured.baseURI = "https://reqres.in/";
     }
 }
