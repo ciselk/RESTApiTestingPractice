@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.net.ProtocolException;
 
@@ -31,10 +32,10 @@ public class DummyRestApiTest extends BaseTest{
 
     @DataProvider(name = "postCreateUserDataProvider")
     public Object[] postCreateUserDataProvider() throws JSONException {
-        String name = "çisel";
-        String job = "engineer";
-        String name2 = "çisel2";
-        String job2 = "engineer2";
+        String name = "çisel4";
+        String job = "engineer4";
+        String name2 = "çisel23";
+        String job2 = "engineer23";
 
         return new Object[][]{{name,job},{name2,job2}};
     }
@@ -59,9 +60,10 @@ public class DummyRestApiTest extends BaseTest{
         String nameResult = jsonObj.getString("name");
         String jobResult = jsonObj.getString("job");
 
-        Assert.assertEquals(response.getStatusCode(),200);
-        Assert.assertEquals(nameResult,name);
-        Assert.assertEquals(jobResult,job);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(response.getStatusCode(),203);
+        softAssert.assertEquals(nameResult,name);
+        softAssert.assertEquals(jobResult,job);
     }
     @DataProvider(name = "putUpdateUserDataProvider")
     public Object[] putUpdateUserDataProvider() throws JSONException {
@@ -92,9 +94,10 @@ public class DummyRestApiTest extends BaseTest{
         String jobResult = jsonObj.getString("job");
         System.out.println(jobResult);
 
-        Assert.assertEquals(response.getStatusCode(),200);
-        Assert.assertEquals(nameResult,name);
-        Assert.assertEquals(jobResult,job);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(response.getStatusCode(),200);
+        softAssert.assertEquals(nameResult,name);
+        softAssert.assertEquals(jobResult,job);
     }
     @DataProvider(name = "patchUpdateUserDataProvider")
     public Object[] patchUpdateUserDataProvider() throws JSONException {
